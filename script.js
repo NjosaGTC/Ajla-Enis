@@ -11,7 +11,7 @@ const CONFIG = {
   weddingDate: "2026-09-04T17:00:00",
 
   // ✏️ WHATSAPP BROJ — AJLA (međunarodni format, bez "+" i bez razmaka)
-  ajlaWhatsApp: "38762082561",
+  ajlaWhatsApp: "38762612886",
 
   // ✏️ WHATSAPP BROJ — ENIS (međunarodni format, bez "+" i bez razmaka)
   enisWhatsApp: "38762971485",
