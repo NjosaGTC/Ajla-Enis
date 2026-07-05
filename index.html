@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Ajla &amp; Enis — Pozivnica za vjenčanje</title>
+  <meta name="description" content="Pozivnica za vjenčanje — Ajla i Enis, 04. septembar 2026.">
+
+  <!-- Google Fonts: Playfair Display (naslovi) + Inter (tekst) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <noscript>
+    <style>
+      /* Ako je JavaScript isključen, prikaži pozivnicu odmah */
+      #reveal-stage { display: none; }
+      #main { opacity: 1; transform: none; }
+      .card { clip-path: none !important; }
+      .fade { opacity: 1; transform: none; }
+      body { overflow: auto; }
+    </style>
+  </noscript>
+</head>
+<body>
+
+  <!-- Plutajuće zlatne čestice u pozadini -->
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <!-- ============================================================
+       UVODNA SCENA — KOVERTA
+       (otvara se TEK na klik/dodir gosta)
+       ============================================================ -->
+  <div id="reveal-stage" role="button" tabindex="0" aria-label="Otvorite pozivnicu">
+    <div class="envelope">
+      <div class="env-back"></div>
+
+      <!-- Malo pismo koje izlazi iz koverte -->
+      <div class="env-letter">
+        <span class="letter-monogram">A <em>&amp;</em> E</span>
+        <span class="letter-caption">Pozivnica</span>
+      </div>
+
+      <div class="env-pocket"></div>
+
+      <!-- Preklop koverte -->
+      <div class="env-flap"></div>
+
+      <!-- Pečat sa inicijalima -->
+      <div class="env-seal"><span>A·E</span></div>
+    </div>
+    <p class="env-hint">Kliknite za otvaranje pozivnice</p>
+  </div>
+
+  <!-- ============================================================
+       GLAVNA POZIVNICA
+       ============================================================ -->
+  <main id="main">
+    <article class="card" id="card">
+      <div class="card-inner">
+
+        <!-- Gornji zlatni ornament (crta se linijskom animacijom) -->
+        <svg class="ornament fade" data-delay="0" viewBox="0 0 420 70" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <path class="draw" d="M210 35 C 180 35 158 20 128 24 C 104 27 88 40 62 36"/>
+            <path class="draw" d="M210 35 C 240 35 262 20 292 24 C 316 27 332 40 358 36"/>
+            <path class="draw" d="M166 27 C 158 16 146 12 136 14 C 142 24 154 29 166 27 Z"/>
+            <path class="draw" d="M254 27 C 262 16 274 12 284 14 C 278 24 266 29 254 27 Z"/>
+            <path class="draw" d="M116 25 C 106 15 94 13 84 16 C 92 25 104 28 116 25 Z"/>
+            <path class="draw" d="M304 25 C 314 15 326 13 336 16 C 328 25 316 28 304 25 Z"/>
+            <path class="draw" d="M210 27 L 216 35 L 210 43 L 204 35 Z"/>
+            <circle class="draw" cx="62" cy="36" r="2.6"/>
+            <circle class="draw" cx="358" cy="36" r="2.6"/>
+          </g>
+        </svg>
+
+        <!-- Mala najava -->
+        <p class="eyebrow fade" data-delay="1">Pozivnica za vjenčanje</p>
+
+        <!-- ✏️ IMENA — mladu i mladoženju mijenjate ovdje -->
+        <h1 class="names fade" data-delay="2">
+          Ajla <span class="amp">&amp;</span> Enis
+        </h1>
+
+        <!-- Uvodni tekst -->
+        <p class="intro fade" data-delay="3">
+          Sa velikom radošću pozivamo Vas da svojim prisustvom
+          uveličate dan našeg vjenčanja.
+        </p>
+
+        <div class="divider fade" data-delay="3"><span></span><i></i><span></span></div>
+
+        <!-- ============ ODBROJAVANJE ============ -->
+        <section class="countdown fade" data-delay="4" aria-label="Odbrojavanje do vjenčanja">
+          <div class="cd-unit"><strong id="cd-days">00</strong><small>dana</small></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-unit"><strong id="cd-hours">00</strong><small>sati</small></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-unit"><strong id="cd-mins">00</strong><small>minuta</small></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-unit"><strong id="cd-secs">00</strong><small>sekundi</small></div>
+        </section>
+
+        <!-- ============ DETALJI ============ -->
+        <section class="details">
+          <div class="detail fade" data-delay="5">
+            <span class="detail-label">Datum</span>
+            <!-- ✏️ DATUM VJENČANJA — mijenjate ovdje -->
+            <p class="detail-value big">04. septembar 2026.</p>
+          </div>
+
+          <div class="detail fade" data-delay="6">
+            <span class="detail-label">Vrijeme</span>
+            <!-- ✏️ VRIJEME — mijenjate ovdje -->
+            <p class="detail-value">Okupljanje gostiju planirano je<br>od 16:00 do 17:00</p>
+            <p class="detail-value accent">Ceremonija vjenčanja u 17:00</p>
+          </div>
+
+          <div class="detail fade" data-delay="7">
+            <span class="detail-label">Lokacija</span>
+            <!-- ✏️ LOKACIJA — mijenjate ovdje (naziv za Google Maps se mijenja u script.js) -->
+            <p class="detail-value big">Hotel Austria &amp; Bosnia</p>
+            <a id="maps-btn" class="btn btn-ghost" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <path d="M12 21s-7-5.6-7-11a7 7 0 1 1 14 0c0 5.4-7 11-7 11Z"/>
+                <circle cx="12" cy="10" r="2.6"/>
+              </svg>
+              Prikaži na mapi
+            </a>
+          </div>
+        </section>
+
+        <div class="divider fade" data-delay="8"><span></span><i></i><span></span></div>
+
+        <!-- Poruka -->
+        <p class="message fade" data-delay="9">
+          Radujemo se što ćete ovaj poseban dan podijeliti s nama.
+        </p>
+
+        <!-- ============ RSVP ============ -->
+        <section class="rsvp fade" data-delay="10">
+          <!-- ✏️ ROK ZA POTVRDU DOLASKA — mijenjate ovdje -->
+          <p class="rsvp-text">Molimo Vas da potvrdite Vaš dolazak <strong>do 20.07.2026.</strong></p>
+
+          <!-- Jedno elegantno dugme — otvara RSVP prozor sa izborom -->
+          <button id="rsvp-open" class="btn btn-gold" type="button">Potvrđujem dolazak</button>
+        </section>
+
+        <!-- Donji zlatni ornament -->
+        <svg class="ornament ornament-bottom fade" data-delay="11" viewBox="0 0 420 70" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <path class="draw" d="M210 35 C 180 35 158 20 128 24 C 104 27 88 40 62 36"/>
+            <path class="draw" d="M210 35 C 240 35 262 20 292 24 C 316 27 332 40 358 36"/>
+            <path class="draw" d="M166 27 C 158 16 146 12 136 14 C 142 24 154 29 166 27 Z"/>
+            <path class="draw" d="M254 27 C 262 16 274 12 284 14 C 278 24 266 29 254 27 Z"/>
+            <path class="draw" d="M116 25 C 106 15 94 13 84 16 C 92 25 104 28 116 25 Z"/>
+            <path class="draw" d="M304 25 C 314 15 326 13 336 16 C 328 25 316 28 304 25 Z"/>
+            <path class="draw" d="M210 27 L 216 35 L 210 43 L 204 35 Z"/>
+            <circle class="draw" cx="62" cy="36" r="2.6"/>
+            <circle class="draw" cx="358" cy="36" r="2.6"/>
+          </g>
+        </svg>
+
+        <!-- ✏️ POTPIS U PODNOŽJU — mijenjate ovdje -->
+        <footer class="card-footer fade" data-delay="12">
+          S ljubavlju, <span class="footer-names">Ajla &amp; Enis</span>
+        </footer>
+
+      </div>
+    </article>
+  </main>
+
+  <!-- ============================================================
+       RSVP PROZOR (na mobitelu: bottom sheet, na desktopu: modal)
+       ============================================================ -->
+  <div id="rsvp-modal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-sheet" role="dialog" aria-modal="true" aria-labelledby="rsvp-title">
+      <button class="modal-close" type="button" aria-label="Zatvori">&times;</button>
+
+      <h2 class="modal-title" id="rsvp-title">Potvrda dolaska</h2>
+      <p class="modal-text">Kome želite poslati potvrdu putem WhatsAppa?</p>
+
+      <div class="modal-choices">
+        <!-- Brojevi i poruke za WhatsApp se mijenjaju u script.js (CONFIG) -->
+        <a id="rsvp-ajla" class="btn btn-gold" href="https://wa.me/38762082561?text=Pozdrav%20Ajla%2C%20potvr%C4%91ujem%20dolazak%20na%20vjen%C4%8Danje." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true">
+            <path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.16-1.35A10 10 0 1 0 12 2Zm5.68 14.15c-.24.68-1.4 1.3-1.94 1.35-.5.05-1.13.23-3.8-.8-3.2-1.26-5.26-4.52-5.42-4.73-.16-.21-1.3-1.73-1.3-3.3 0-1.57.82-2.34 1.11-2.66.29-.32.63-.4.84-.4h.6c.2 0 .46-.04.71.55.26.61.87 2.12.95 2.27.08.16.13.35.02.56-.1.21-.16.34-.31.53-.16.18-.33.41-.47.55-.16.15-.32.32-.14.63.18.32.8 1.31 1.71 2.13 1.18 1.05 2.17 1.37 2.48 1.53.31.16.5.13.68-.08.18-.21.79-.92 1-1.23.21-.32.42-.26.71-.16.29.11 1.85.87 2.17 1.03.32.16.53.24.6.37.08.13.08.79-.16 1.46Z"/>
+          </svg>
+          Potvrdi kod Ajle
+        </a>
+        <a id="rsvp-enis" class="btn btn-gold" href="https://wa.me/38762971485?text=Pozdrav%20Enise%2C%20potvr%C4%91ujem%20dolazak%20na%20vjen%C4%8Danje." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true">
+            <path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.16-1.35A10 10 0 1 0 12 2Zm5.68 14.15c-.24.68-1.4 1.3-1.94 1.35-.5.05-1.13.23-3.8-.8-3.2-1.26-5.26-4.52-5.42-4.73-.16-.21-1.3-1.73-1.3-3.3 0-1.57.82-2.34 1.11-2.66.29-.32.63-.4.84-.4h.6c.2 0 .46-.04.71.55.26.61.87 2.12.95 2.27.08.16.13.35.02.56-.1.21-.16.34-.31.53-.16.18-.33.41-.47.55-.16.15-.32.32-.14.63.18.32.8 1.31 1.71 2.13 1.18 1.05 2.17 1.37 2.48 1.53.31.16.5.13.68-.08.18-.21.79-.92 1-1.23.21-.32.42-.26.71-.16.29.11 1.85.87 2.17 1.03.32.16.53.24.6.37.08.13.08.79-.16 1.46Z"/>
+          </svg>
+          Potvrdi kod Enisa
+        </a>
+      </div>
+
+      <!-- ✏️ BROJEVI TELEFONA (prikaz) — mijenjate ovdje -->
+      <p class="modal-contacts">Ajla&nbsp;·&nbsp;062 082 561&ensp;|&ensp;Enis&nbsp;·&nbsp;062 971 485</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
